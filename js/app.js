@@ -4,15 +4,18 @@
 
     this.widgetArea = this.el.find('.widget-area');
     this.urlInput   = this.el.find('[name=url]');
+    this.content    = [];
+    this.order      = 0;
 
     this.widgetArea.css({
       width: 500,
       height: 400
     })
     
-    this.el.on('input', '.skin-control', this._onSkinControlInput.bind(this))
-    this.el.on('click', '[name=clear]',  this._onClearClicked.bind(this))
-    this.el.on('click', '[name=add]',    this._onAddClicked.bind(this))
+    this.el.on('input', '.skin-control',   this._onSkinControlInput.bind(this))
+    this.el.on('click', '[name=clear]',    this._onClearClicked.bind(this))
+    this.el.on('click', '[name=add]',      this._onAddClicked.bind(this))
+    this.el.on('click', '.content-list a', this._onRemoveClicked.bind(this))
   }
 
   CustomEditor.prototype.start = function() {
@@ -70,6 +73,8 @@
 
   CustomEditor.prototype._onClearClicked = function() {
     this.preview.clearContent();
+    this.content = [];
+    this._renderContentList();
   }
 
   CustomEditor.prototype._onAddClicked = function() {
@@ -83,8 +88,31 @@
       order: this.order++,
       image: imageUrl
     };
+    this.content.push(newContent);
     this.preview.addContent(newContent);
+    this._renderContentList();
   }
+
+  CustomEditor.prototype._renderContentList = function() {
+    var $list = this.el.find('.content-list')
+    var html = this.content.reduce(function(acc, cur) {
+      console.log(cur, acc);
+      return acc + 
+        '<li data-id="'+ cur.id +'">'+ cur.image.match(/(\/.+?)+$/)[1] +' <a href="#">Remove</a></li>';
+    }, '')
+    $list.html(html);
+  }
+
+  CustomEditor.prototype._onRemoveClicked = function(ev) {
+    ev.preventDefault();
+    var id = $(ev.currentTarget).parents('li').data('id')
+
+    this.preview.removeContent({id: id});
+    this.content = this.content.filter(function(item) {
+      return item.id !== id;
+    })
+    this._renderContentList();
+  };
 
   var App = function(el) {
     this.el = el;
