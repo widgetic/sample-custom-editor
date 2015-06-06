@@ -46,6 +46,8 @@ label {
 
 .widget-area {
   margin: 0 auto;
+  width: 500px;
+  height: 400px;
 }
 
 .editor-col {
