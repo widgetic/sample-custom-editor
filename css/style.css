@@ -63,3 +63,7 @@ label {
 .editor-col:last-child {
   margin-right: 0;
 }
+
+.content-list a {
+  color: white;
+}
