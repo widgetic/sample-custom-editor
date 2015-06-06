@@ -1,0 +1,63 @@
+body, html {
+  margin: 0;
+}
+
+body {
+  color: white;
+  font-family: Roboto, sans-serif;
+  padding: 20px;
+  background: #504356;
+}
+
+.warning {
+  font-weight: 200;
+  color: #E24343;
+}
+
+h1 {
+  font-size: 1em;
+}
+
+input, button {
+  color: black;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+}
+
+.login-area {
+  display: none;
+}
+
+.app > .login-area ~ * {
+  transition: opacity 300ms;
+}
+
+.app.init > .login-area {
+  display: block;
+  opacity: 1;
+}
+
+.app.init > .login-area ~ * {
+  opacity: 0;
+}
+
+.widget-area {
+  margin: 0 auto;
+}
+
+.editor-col {
+  display: inline-block;
+  width: 49%;
+  vertical-align: top;
+  box-sizing: border-box;
+  background: rgb(73, 57, 81);
+  padding: 20px;
+  margin-right: 2%;
+}
+
+.editor-col:last-child {
+  margin-right: 0;
+}
