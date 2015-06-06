@@ -75,7 +75,7 @@
   CustomEditor.prototype._onAddClicked = function() {
     var imageUrl = this.urlInput.val();
     if(!/^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+/.test(imageUrl)) {
-      alert("Does not look like a valid image url");
+      alert("Does not look like a valid url");
       return;
     }
     var newContent = {
