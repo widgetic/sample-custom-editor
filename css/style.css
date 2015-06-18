@@ -6,7 +6,7 @@ body {
   color: white;
   font-family: Roboto, sans-serif;
   padding: 20px;
-  background: #504356;
+  background: #292929;
 }
 
 .warning {
@@ -55,7 +55,7 @@ label {
   width: 49%;
   vertical-align: top;
   box-sizing: border-box;
-  background: rgb(73, 57, 81);
+  background: #333;
   padding: 20px;
   margin-right: 2%;
 }
