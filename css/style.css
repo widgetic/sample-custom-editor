@@ -67,3 +67,17 @@ label {
 .content-list a {
   color: white;
 }
+
+.login-area > button {
+  background-color: #ea5852;
+  color: #fff;
+  font-size: 14px;
+  min-width: 100px;
+  text-align: center;
+  border: none;
+  border-radius: 30px;
+  padding: 10px;
+  outline: none;
+  cursor: pointer;
+  margin: 20px 0;
+}
