@@ -144,6 +144,7 @@
 
   App.prototype._onLoginSuccess = function() {
     this.el.removeClass('init');
+    this.el.addClass('loggedIn')
     this.customEditor.start();
   };
 
